@@ -1,0 +1,227 @@
+/* ============================================
+   EGUSI SOUP RECIPE — STYLESHEET
+   Covers: fonts, flexbox/grid, spacing,
+   borders, backgrounds, hover & transitions
+   ============================================ */
+
+/* ---------- 1. GOOGLE FONTS IMPORT ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap');
+
+/* ---------- 2. CSS VARIABLES (colour palette) ---------- */
+:root {
+  --color-bg:         #fdf6ee;        /* warm off-white background */
+  --color-surface:    #ffffff;        /* card / content surface    */
+  --color-primary:    #b5451b;        /* deep terracotta red       */
+  --color-accent:     #e8903a;        /* warm amber orange         */
+  --color-text:       #2c1a0e;        /* dark brown body text      */
+  --color-muted:      #7a5c44;        /* muted brown secondary     */
+  --color-border:     #e2cdb5;        /* soft warm border          */
+  --font-heading:     'Playfair Display', Georgia, serif;
+  --font-body:        'Lato', sans-serif;
+  --radius:           10px;
+  --shadow:           0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition:       0.3s ease;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  /* subtle noise texture via SVG data URI */
+}
+
+/* ---------- 4. PAGE LAYOUT (CSS Grid) ---------- */
+/* Centres content and caps the max width */
+body > * {
+  width: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* ---------- 5. HEADER / HERO AREA ---------- */
+header, h1:first-of-type {
+  text-align: center;
+  padding: 48px 24px 24px;
+}
+
+/* Page title (the "Recipe Page Assignment" text) */
+/* If it's a plain <h1>, style it directly */
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--color-primary);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 14px;
+  margin: 40px 0 16px;
+}
+
+/* ---------- 6. HERO IMAGE ---------- */
+img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 24px auto 32px;
+  border: 3px solid var(--color-border);
+  
+}
+
+img:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+}
+
+/* ---------- 7. INTRO PARAGRAPH ---------- */
+p {
+  color: var(--color-text);
+  margin-bottom: 20px;
+  
+}
+
+strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+em {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* ---------- 8. RECIPE META CARD (Flexbox) ---------- */
+/* Wraps the "Recipe Details" section in a styled card */
+/* Target the section after the first h2 */
+h2 {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+}
+
+h2 + p::before {
+  
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---------- 9. INGREDIENTS (CSS Grid) ---------- */
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+ul li {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  /* hover transition */
+  transition: background-color var(--transition),
+              border-color var(--transition),
+              transform var(--transition);
+  cursor: default;
+}
+
+ul li::before {
+  content: "•";
+  color: var(--color-accent);
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+ul li:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+ul li:hover::before {
+  color: #fff;
+}
+
+/* ---------- 10. INSTRUCTIONS (Numbered List) ---------- */
+ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+ol li {
+  counter-increment: steps;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+ol li:hover {
+  border-color: var(--color-accent);
+  transform: translateX(4px);
+}
+
+ol li::before {
+  content: counter(steps);
+  min-width: 34px;
+  height: 34px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+ 
+  transition: background-color var(--transition);
+}
+
+
