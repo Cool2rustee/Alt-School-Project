@@ -1,21 +1,15 @@
-/* ============================================
-   EGUSI SOUP RECIPE — STYLESHEET
-   Covers: fonts, flexbox/grid, spacing,
-   borders, backgrounds, hover & transitions
-   ============================================ */
-
 /* ---------- 1. GOOGLE FONTS IMPORT ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;600&display=swap');
 
 /* ---------- 2. CSS VARIABLES (colour palette) ---------- */
 :root {
-  --color-bg:         #fdf6ee;        /* warm off-white background */
-  --color-surface:    #ffffff;        /* card / content surface    */
-  --color-primary:    #b5451b;        /* deep terracotta red       */
-  --color-accent:     #e8903a;        /* warm amber orange         */
-  --color-text:       #2c1a0e;        /* dark brown body text      */
-  --color-muted:      #7a5c44;        /* muted brown secondary     */
-  --color-border:     #e2cdb5;        /* soft warm border          */
+  --color-bg:         #fdf6ee;        
+  --color-surface:    #ffffff;        
+  --color-primary:    #b5451b;        
+  --color-accent:     #e8903a;        
+  --color-text:       #2c1a0e;        
+  --color-muted:      #7a5c44;        
+  --color-border:     #e2cdb5;  
   --font-heading:     'Playfair Display', Georgia, serif;
   --font-body:        'Lato', sans-serif;
   --radius:           10px;
@@ -38,8 +32,6 @@ body {
   /* subtle noise texture via SVG data URI */
 }
 
-/* ---------- 4. PAGE LAYOUT (CSS Grid) ---------- */
-/* Centres content and caps the max width */
 body > * {
   width: 100%;
 }
@@ -50,14 +42,13 @@ body {
   min-height: 100vh;
 }
 
-/* ---------- 5. HEADER / HERO AREA ---------- */
+
 header, h1:first-of-type {
   text-align: center;
   padding: 48px 24px 24px;
 }
 
-/* Page title (the "Recipe Page Assignment" text) */
-/* If it's a plain <h1>, style it directly */
+
 h1 {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -111,8 +102,7 @@ em {
 }
 
 /* ---------- 8. RECIPE META CARD (Flexbox) ---------- */
-/* Wraps the "Recipe Details" section in a styled card */
-/* Target the section after the first h2 */
+
 h2 {
   background-color: var(--color-surface);
   border: 1.5px solid var(--color-border);
