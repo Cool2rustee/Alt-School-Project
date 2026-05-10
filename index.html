@@ -3,42 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Page Assignment</title>
-    <link rel="stylesheet" href="index.css">
+    <title>User Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .registration-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .required {
+            color: red;
+        }
+    </style>
 </head>
 <body>
+    <div class="registration-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" action="/submit-registration" method="POST">
+            
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    placeholder="Enter your full name"
+                    required
+                    minlength="2"
+                >
+                <span class="error-message" id="fullNameError">Please enter a valid name</span>
+            </div>
 
-    <img src="./Assets/Images/egusi-soup-with-chicken-recipe-500x375.webp" alt="Egusi Soup" width="1350px" height="500px">
-    <h1>Egusi Soup</h1>
-    <p>Egusi soup is a rich <strong>West African</strong> classic made with melon seeds, ugwu leaves, and your choice of meat or fish, slow-cooked in a deeply flavoured palm oil base. 
-        Bold, satisfying, and <mark>built for sharing</mark> — this is comfort food at its most authentic.</p>
-    
-    <h2>Recipe Details</h2>
-        <p>To prepare egusi soup, start by visiting the market to purchase the ingredients listed below. This should take about 1 to 2 hours. Cooking the soup itself typically takes 30 to 45 minutes. It can be served with <em>eba, fufu, semo, or pounded yam,</em> and can even be enjoyed with white rice—<u>that’s how versatile egusi soup is.</u>
-            </p>
-    
-     <h2>Ingredients</h2>
-    <ul>
-      <li>Palm Oil</li>
-      <li>Melon Seeds</li>
-      <li>Onions</li>
-      <li>Meat/Fish</li>
-      <li>Maggi</li>
-      <li>Salt</li>
-      <li>Ugwu Leaf</li>
-      <li>Pepper</li>
-    </ul>
-    
-    <h2>Instructions</h2>
-    <ol>
-      <li>Pour the red oil into a pot and allow it heat for at least 2 mins.</li>
-      <li>Add your onions.</li>
-      <li>Add your blended melon seeds.</li>
-      <li>Add your pepper.</li>
-      <li>Add water and stir.</li>
-      <li>Add your fish/meat and salt to taste.</li>
-      <li>Cover the pot and allow to cook together for about 5 mins.</li>
-      <li>Add your ugwu leaves.</li>
-      <li>Allow everything cook together for about 7 mins and the soup is ready.</li>
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email"
+                    required
+                >
+                <span class="error-message" id="emailError">Please enter a valid email address</span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password <span class="required">*</span></label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Enter your password"
+                    required
+                    minlength="8"
+                >
+                <span class="error-message" id="passwordError">Password must be at least 8 characters</span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                <input 
+                    type="password" 
+                    id="confirmPassword" 
+                    name="confirmPassword" 
+                    placeholder="Confirm your password"
+                    required
+                >
+                <span class="error-message" id="confirmPasswordError">Passwords do not match</span>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age <span class="required">*</span></label>
+                <input 
+                    type="number" 
+                    id="age" 
+                    name="age" 
+                    placeholder="Enter your age"
+                    required
+                    min="18"
+                    max="120"
+                >
+                <span class="error-message" id="ageError">You must be at least 18 years old</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+        
 </body>
 </html>
