@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ============ HEADER: Top navy bar with title and search ============ -->
+    <header class="app-header">
+      <h1 class="app-title">🌤️ Weather App</h1>
+
+      <div class="search-bar">
+        <input
+          type="text"
+          id="cityInput"
+          class="search-input"
+          placeholder="Enter city name..."
+        >
+        <button id="searchBtn" class="search-btn">Search</button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ============ ERROR MESSAGE: Hidden by default, shown on bad search ============ -->
+      <p id="errorMessage" class="error-message hidden"></p>
+
+      <!-- ============ LOADING MESSAGE: Hidden by default, shown while fetching ============ -->
+      <p id="loadingMessage" class="loading-message hidden">Loading...</p>
+
+      <!-- ============ HERO SECTION: Current weather summary ============ -->
+      <section id="weatherHero" class="hero-section hidden">
+        <div class="weather-icon" id="weatherIcon">☀️</div>
+        <h2 class="city-name" id="cityName">City, Country</h2>
+        <p class="temperature" id="temperature">--°C</p>
+        <p class="description" id="description">-- · Feels like --°C</p>
+      </section>
+
+      <!-- ============ STATS ROW: Humidity, Wind, UV Index ============ -->
+      <section id="statsRow" class="stats-row hidden">
+        <div class="stat-box">
+          <p class="stat-label">Humidity</p>
+          <p class="stat-value" id="humidityValue">--%</p>
+        </div>
+        <div class="stat-box">
+          <p class="stat-label">Wind</p>
+          <p class="stat-value" id="windValue">-- km/h</p>
+        </div>
+        <div class="stat-box">
+          <p class="stat-label">UV Index</p>
+          <p class="stat-value" id="uvValue">--</p>
+        </div>
+      </section>
+
+      <!-- ============ FORECAST SECTION: 5-day forecast list ============ -->
+      <section id="forecastSection" class="forecast-section hidden">
+        <h3 class="forecast-title">5-Day Forecast</h3>
+        <div id="forecastList" class="forecast-list">
+          <!-- Forecast rows are added here dynamically by JavaScript -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Script linked at the bottom of body so the HTML loads first -->
+  <script src="script.js"></script>
+</body>
+</html>

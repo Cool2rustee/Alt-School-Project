@@ -1,0 +1,260 @@
+/* ============================================
+   GLOBAL / RESET STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center; /* centers the app horizontally on the page */
+  padding: 20px;
+}
+
+/* The whole app sits inside one centered, card-like container */
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   HEADER (navy bar with title + search field)
+   ============================================ */
+.app-header {
+  background-color: #1A3C5E;
+  color: #ffffff;
+  padding: 16px;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: 2px solid #2E86AB;
+}
+
+.search-btn {
+  padding: 8px 16px;
+  background-color: #2E86AB;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease; /* smooth hover transition */
+}
+
+.search-btn:hover {
+  background-color: #246a87;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   LOADING / ERROR MESSAGES
+   ============================================ */
+.loading-message {
+  text-align: center;
+  padding: 20px;
+  color: #2E86AB;
+  font-weight: bold;
+}
+
+.error-message {
+  text-align: center;
+  padding: 14px;
+  margin: 16px;
+  background-color: #fdecea;
+  color: #b3261e;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ============================================
+   HERO SECTION (teal/blue current weather)
+   ============================================ */
+.hero-section {
+  background-color: #2E86AB;
+  color: #ffffff;
+  text-align: center;
+  padding: 24px 16px;
+  margin: 16px;
+  border-radius: 10px;
+}
+
+.weather-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.city-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.temperature {
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.description {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ============================================
+   STATS ROW (Humidity / Wind / UV Index)
+   ============================================ */
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.stat-box {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #777777;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1A3C5E;
+}
+
+/* ============================================
+   FORECAST SECTION (white background, 5 days)
+   ============================================ */
+.forecast-section {
+  background-color: #ffffff;
+  padding: 12px 16px 20px;
+}
+
+.forecast-title {
+  font-size: 12px;
+  color: #777777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 6px;
+  transition: all 0.2s ease; /* smooth hover transition */
+}
+
+.forecast-row:hover {
+  background-color: #f5f9fb;
+}
+
+.forecast-row:last-child {
+  border-bottom: none;
+}
+
+.forecast-day {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1A3C5E;
+}
+
+.forecast-icon {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+}
+
+.forecast-temps {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+}
+
+.forecast-high {
+  font-weight: bold;
+  color: #1A3C5E;
+}
+
+.forecast-low {
+  color: #999999;
+  margin-left: 4px;
+}
+
+/* ============================================
+   RESPONSIVE: screens narrower than 480px
+   ============================================ */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .app-container {
+    max-width: 100%;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .temperature {
+    font-size: 36px;
+  }
+
+  .app-title {
+    font-size: 16px;
+  }
+
+  .search-input,
+  .search-btn {
+    font-size: 13px;
+  }
+}
